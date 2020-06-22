@@ -24,7 +24,7 @@ public class FileEntryStat implements FSEntry {
             return lines;
         } catch (Exception e) {
             e.printStackTrace();
-            return 0l;
+            return -1l;
         }
     }
 
@@ -38,5 +38,10 @@ public class FileEntryStat implements FSEntry {
     public String toString() {
         String result = String.format("F[%s]:%d", file, getLineCount());
         return result;
+    }
+
+    @Override
+    public String getPrefix() {
+        return "-";
     }
 }

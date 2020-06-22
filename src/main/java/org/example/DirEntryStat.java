@@ -20,6 +20,7 @@ public class DirEntryStat implements FSEntry {
 
     public void addChildren(Collection<FSEntry> entries) {
         children.addAll(entries);
+        children.sort((e1,e2)->e1.getClass().getName().compareTo(e2.getClass().getName())*-1);//files first
     }
 
     public List<FSEntry> getChildren() {
@@ -35,5 +36,10 @@ public class DirEntryStat implements FSEntry {
     @Override
     public long getLineCount() {
         return children.stream().map(child -> child.getLineCount()).collect(Collectors.summingLong(e -> e));
+    }
+
+    @Override
+    public String getPrefix() {
+        return "+";
     }
 }

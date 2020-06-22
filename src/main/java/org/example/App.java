@@ -43,7 +43,7 @@ public class App {
         result.append('\n');
         if (entry instanceof DirEntryStat) {
             for (FSEntry e : ((DirEntryStat) entry).getChildren()) {
-                result.append(printStats(e, prefix + CHILD_RECORD_PREFIX));
+                result.append(printStats(e, prefix + e.getPrefix()));
             }
         }
         return result.toString();
@@ -51,6 +51,6 @@ public class App {
 
     public static void main(String[] args) {
         FSEntry e = generateStats(new File(args[0]));
-        System.out.println(printStats(e, ""));
+        System.out.println(printStats(e, "+"));
     }
 }

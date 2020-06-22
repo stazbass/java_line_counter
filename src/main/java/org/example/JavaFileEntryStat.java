@@ -59,4 +59,9 @@ public class JavaFileEntryStat implements FSEntry {
         String result = String.format("F[%s]:%d", file, getLineCount());
         return result;
     }
+
+    @Override
+    public String getPrefix() {
+        return "-";
+    }
 }

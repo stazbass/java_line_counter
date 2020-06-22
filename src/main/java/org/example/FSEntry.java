@@ -5,4 +5,5 @@ package org.example;
  */
 public interface FSEntry {
     long getLineCount();
+    String getPrefix();
 }
